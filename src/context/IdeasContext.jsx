@@ -126,6 +126,10 @@ export function IdeasProvider({ children }) {
         }
         setLoading(false)
       })
+      .catch(err => {
+        setError(err.message ?? 'Failed to connect to Supabase')
+        setLoading(false)
+      })
   }, [])
 
   // ── Persist to localStorage when in local-only mode ─────────────────────────
