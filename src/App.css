@@ -524,3 +524,50 @@
   border-radius: 10px;
   letter-spacing: 0.04em;
 }
+
+/* ── Loading & banners ──────────────────────────────────── */
+.app--loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.loading-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.local-mode-banner {
+  background: #FFF8E1;
+  border-bottom: 1.5px solid #FFE082;
+  color: #7B5E00;
+  font-size: 0.82rem;
+  text-align: center;
+  padding: 8px 16px;
+}
+
+.local-mode-banner a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.error-banner {
+  background: #FFF0F0;
+  border-bottom: 1.5px solid #FFCDD2;
+  color: #BB2E2E;
+  font-size: 0.82rem;
+  text-align: center;
+  padding: 8px 16px;
+}

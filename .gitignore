@@ -9,3 +9,8 @@ android/
 # IDE files (Android Studio / IntelliJ)
 .idea/
 *.iml
+
+# Environment variables (never commit secrets)
+.env
+.env.local
+.env.*.local
