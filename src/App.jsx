@@ -5,7 +5,7 @@ import IdeaForm from './components/IdeaForm.jsx'
 import './App.css'
 
 function AppInner() {
-  const { addIdea, updateIdea, deleteIdea } = useIdeas()
+  const { addIdea, updateIdea, deleteIdea, loading, error, isLocalOnly } = useIdeas()
   const [view, setView] = useState('list') // 'list' | 'form'
   const [selectedIdea, setSelectedIdea] = useState(null)
 
@@ -40,8 +40,34 @@ function AppInner() {
     setSelectedIdea(null)
   }
 
+  if (loading) {
+    return (
+      <div className="app app--loading">
+        <div className="loading-spinner" />
+        <p>Loading ideas…</p>
+      </div>
+    )
+  }
+
   return (
     <div className="app">
+      {isLocalOnly && (
+        <div className="local-mode-banner">
+          📦 Local-only mode — ideas are saved to this device only.
+          <a
+            href="https://github.com/RobbeG-immalle/App-it#supabase-setup"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {' '}Set up Supabase →
+          </a>
+        </div>
+      )}
+      {error && (
+        <div className="error-banner">
+          ⚠️ Supabase error: {error}
+        </div>
+      )}
       {view === 'list' ? (
         <IdeaList
           onNewIdea={openNewIdea}
