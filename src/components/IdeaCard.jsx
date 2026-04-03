@@ -11,7 +11,7 @@ export default function IdeaCard({ idea, onClick }) {
 
   return (
     <div className="idea-card" onClick={onClick} role="button" tabIndex={0}
-      onKeyDown={e => e.key === 'Enter' && onClick()}>
+      onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && onClick()}>
       <div className="idea-card__header">
         <h3 className="idea-card__title">{idea.title}</h3>
         <div className="idea-card__badges">
