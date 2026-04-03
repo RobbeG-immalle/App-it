@@ -5,3 +5,7 @@ dist-ssr
 .DS_Store
 ios/
 android/
+
+# IDE files (Android Studio / IntelliJ)
+.idea/
+*.iml
